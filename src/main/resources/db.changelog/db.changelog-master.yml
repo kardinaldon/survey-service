@@ -182,11 +182,6 @@ databaseChangeLog:
         referencedColumnNames: completed_survey_id
         referencedTableName: completed_survey
         validate: true
-
-
-
-
-
 - changeSet:
       id: 1640950308686-3
       author: Andrew (generated)
@@ -215,11 +210,6 @@ databaseChangeLog:
                           name: role
                           value: USER
                 tableName: app_user
-
-
-
-
-
 - changeSet:
       id: 1640950308686-2
       author: Andrew (generated)
@@ -242,9 +232,6 @@ databaseChangeLog:
                           name: title
                           value: Title
                 tableName: survey
-
-
-
 - changeSet:
     id: 1640950308686-1
     author: Andrew (generated)
@@ -316,7 +303,6 @@ databaseChangeLog:
         tableName: user_answer
     - insert:
         columns:
-        - column:
         - column:
             name: answer
             value: SINGLE CHOICEanswer
