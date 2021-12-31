@@ -9,7 +9,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: false
+      ddl-auto: none
       format_sql: true
     properties:
       hibernate:
