@@ -1,0 +1,30 @@
+spring:
+  output:
+    ansi:
+      enabled: DETECT
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+  main:
+    banner-mode: off
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    initialization-mode: always
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: false
+      format_sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect
+    open-in-view: false
+  liquibase:
+    enabled: true
+    change-log: classpath:db.changelog/db.changelog-master.yml
+    url: ${JDBC_DATABASE_URL}
+    user: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    drop-first: true

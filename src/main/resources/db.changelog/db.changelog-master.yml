@@ -1,0 +1,358 @@
+databaseChangeLog:
+- changeSet:
+    id: 1640950007332-1
+    author: Andrew (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: question_pkey
+            name: question_id
+            type: BIGINT
+        - column:
+            name: text
+            type: VARCHAR(255)
+        - column:
+            name: type
+            type: VARCHAR(255)
+        - column:
+            name: survey_id
+            type: BIGINT
+        tableName: question
+- changeSet:
+    id: 1640950007332-2
+    author: Andrew (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: survey_pkey
+            name: survey_id
+            type: BIGINT
+        - column:
+            name: active
+            type: BOOLEAN
+        - column:
+            name: description
+            type: VARCHAR(255)
+        - column:
+            name: end_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: start_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: title
+            type: VARCHAR(255)
+        tableName: survey
+- changeSet:
+    id: 1640950007332-3
+    author: Andrew (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: app_user_pkey
+            name: app_user_id
+            type: BIGINT
+        - column:
+            name: login
+            type: VARCHAR(255)
+        - column:
+            name: password
+            type: VARCHAR(255)
+        - column:
+            name: role
+            type: VARCHAR(255)
+        tableName: app_user
+- changeSet:
+    id: 1640950007332-4
+    author: Andrew (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: completed_survey_pkey
+            name: completed_survey_id
+            type: BIGINT
+        - column:
+            name: survey_id
+            type: BIGINT
+        - column:
+            name: app_user_id
+            type: BIGINT
+        tableName: completed_survey
+- changeSet:
+    id: 1640950007332-5
+    author: Andrew (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: user_answer_pkey
+            name: user_answer_id
+            type: BIGINT
+        - column:
+            name: answer
+            type: VARCHAR(255)
+        - column:
+            name: question
+            type: VARCHAR(255)
+        - column:
+            name: completed_survey_id
+            type: BIGINT
+        tableName: user_answer
+- changeSet:
+    id: 1640950007332-6
+    author: Andrew (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: survey_id
+        baseTableName: question
+        constraintName: fk65ro96jafjvulbqu8ia0pb254
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: survey_id
+        referencedTableName: survey
+        validate: true
+- changeSet:
+    id: 1640950007332-7
+    author: Andrew (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: survey_id
+        baseTableName: completed_survey
+        constraintName: fkjq90523g2toebkhefh1ctg9pu
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: survey_id
+        referencedTableName: survey
+        validate: true
+- changeSet:
+    id: 1640950007332-8
+    author: Andrew (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: app_user_id
+        baseTableName: completed_survey
+        constraintName: fkgc8nqxwmwnhbqwwc39n2ef3b5
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: app_user_id
+        referencedTableName: app_user
+        validate: true
+- changeSet:
+    id: 1640950007332-9
+    author: Andrew (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: completed_survey_id
+        baseTableName: user_answer
+        constraintName: fkrponmnxbrqhm0js5tvqyhfpmw
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: completed_survey_id
+        referencedTableName: completed_survey
+        validate: true
+- changeSet:
+    id: 1640950308686-1
+    author: Andrew (generated)
+    changes:
+    - insert:
+        columns:
+        - column:
+            name: question_id
+            valueNumeric: 1
+        - column:
+            name: text
+            value: Text Question
+        - column:
+            name: type
+            value: TEXT
+        - column:
+            name: survey_id
+            valueNumeric: 1
+        tableName: question
+    - insert:
+        columns:
+        - column:
+            name: question_id
+            valueNumeric: 2
+        - column:
+            name: text
+            value: SINGLE CHOICE Question
+        - column:
+            name: type
+            value: SINGLE_CHOICE
+        - column:
+            name: survey_id
+            valueNumeric: 1
+        tableName: question
+    - insert:
+        columns:
+        - column:
+            name: question_id
+            valueNumeric: 3
+        - column:
+            name: text
+            value: MULTIPLE CHOICE Question
+        - column:
+            name: type
+            value: MULTIPLE_CHOICE
+        - column:
+            name: survey_id
+            valueNumeric: 1
+        tableName: question
+- changeSet:
+    id: 1640950308686-2
+    author: Andrew (generated)
+    changes:
+    - insert:
+        columns:
+        - column:
+            name: survey_id
+            valueNumeric: 1
+        - column:
+            name: active
+            valueBoolean: true
+        - column:
+            name: description
+            value: Description
+        - column:
+            name: end_date
+            valueDate: 2021-12-28T20:22:26.389529
+        - column:
+            name: start_date
+            valueDate: 2021-12-28T20:22:26.389529
+        - column:
+            name: title
+            value: Title
+        tableName: survey
+- changeSet:
+    id: 1640950308686-3
+    author: Andrew (generated)
+    changes:
+    - insert:
+        columns:
+        - column:
+            name: app_user_id
+            valueNumeric: 1
+        - column:
+            name: login
+            value: admin
+        - column:
+            name: password
+            value: $2a$10$R9GTJ.FDzvRBaUiLwdFdxeHHNX6PdIsG44thZZV.K5kvQFY6IPjPa
+        - column:
+            name: role
+            value: ADMIN
+        tableName: app_user
+    - insert:
+        columns:
+        - column:
+            name: app_user_id
+            valueNumeric: 2
+        - column:
+            name: login
+            value: user
+        - column:
+            name: password
+            value: $2a$10$otWhHnRmP7rJpvYRsU0Ryu/KRIZXyodnO3Ys/y7mEuZSTAxgpfKCC
+        - column:
+            name: role
+            value: USER
+        tableName: app_user
+- changeSet:
+    id: 1640950308686-4
+    author: Andrew (generated)
+    changes:
+    - insert:
+        columns:
+        - column:
+            name: completed_survey_id
+            valueNumeric: 1
+        - column:
+            name: survey_id
+            valueNumeric: 1
+        - column:
+            name: app_user_id
+            valueNumeric: 2
+        tableName: completed_survey
+- changeSet:
+    id: 1640950308686-5
+    author: Andrew (generated)
+    changes:
+    - insert:
+        columns:
+        - column:
+            name: user_answer_id
+            valueNumeric: 1
+        - column:
+            name: answer
+            value: Text answer
+        - column:
+            name: question
+            value: Text of question
+        - column:
+            name: completed_survey_id
+            valueNumeric: 1
+        tableName: user_answer
+    - insert:
+        columns:
+        - column:
+            name: user_answer_id
+            valueNumeric: 2
+        - column:
+            name: answer
+            value: SINGLE CHOICEanswer
+        - column:
+            name: question
+            value: Text of question
+        - column:
+            name: completed_survey_id
+            valueNumeric: 1
+        tableName: user_answer
+    - insert:
+        columns:
+        - column:
+            name: user_answer_id
+            valueNumeric: 3
+        - column:
+            name: answer
+            value: MULTIPLE CHOICE answer 1, MULTIPLE CHOICE answer 2
+        - column:
+            name: question
+            value: Text of question
+        - column:
+            name: completed_survey_id
+            valueNumeric: 1
+        tableName: user_answer
+

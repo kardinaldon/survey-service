@@ -1,0 +1,16 @@
+package com.fabrique.fabrique_app.repository;
+
+import com.fabrique.fabrique_app.model.entity.Survey;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface SurveyRepository extends JpaRepository<Survey, Long> {
+
+
+
+    List<Survey> findByActive(boolean active);
+
+}
