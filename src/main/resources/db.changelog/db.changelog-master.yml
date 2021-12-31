@@ -182,15 +182,75 @@ databaseChangeLog:
         referencedColumnNames: completed_survey_id
         referencedTableName: completed_survey
         validate: true
+
+
+
+
+
+- changeSet:
+      id: 1640950308686-3
+      author: Andrew (generated)
+      changes:
+          - insert:
+                columns:
+                    - column:
+                          name: login
+                          value: admin
+                    - column:
+                          name: password
+                          value: $2a$10$R9GTJ.FDzvRBaUiLwdFdxeHHNX6PdIsG44thZZV.K5kvQFY6IPjPa
+                    - column:
+                          name: role
+                          value: ADMIN
+                tableName: app_user
+          - insert:
+                columns:
+                    - column:
+                          name: login
+                          value: user
+                    - column:
+                          name: password
+                          value: $2a$10$otWhHnRmP7rJpvYRsU0Ryu/KRIZXyodnO3Ys/y7mEuZSTAxgpfKCC
+                    - column:
+                          name: role
+                          value: USER
+                tableName: app_user
+
+
+
+
+
+- changeSet:
+      id: 1640950308686-2
+      author: Andrew (generated)
+      changes:
+          - insert:
+                columns:
+                    - column:
+                          name: active
+                          valueBoolean: true
+                    - column:
+                          name: description
+                          value: Description
+                    - column:
+                          name: end_date
+                          valueDate: 2021-12-28T20:22:26.389529
+                    - column:
+                          name: start_date
+                          valueDate: 2021-12-28T20:22:26.389529
+                    - column:
+                          name: title
+                          value: Title
+                tableName: survey
+
+
+
 - changeSet:
     id: 1640950308686-1
     author: Andrew (generated)
     changes:
     - insert:
         columns:
-        - column:
-            name: question_id
-            valueNumeric: 1
         - column:
             name: text
             value: Text Question
@@ -204,9 +264,6 @@ databaseChangeLog:
     - insert:
         columns:
         - column:
-            name: question_id
-            valueNumeric: 2
-        - column:
             name: text
             value: SINGLE CHOICE Question
         - column:
@@ -219,9 +276,6 @@ databaseChangeLog:
     - insert:
         columns:
         - column:
-            name: question_id
-            valueNumeric: 3
-        - column:
             name: text
             value: MULTIPLE CHOICE Question
         - column:
@@ -232,73 +286,11 @@ databaseChangeLog:
             valueNumeric: 1
         tableName: question
 - changeSet:
-    id: 1640950308686-2
-    author: Andrew (generated)
-    changes:
-    - insert:
-        columns:
-        - column:
-            name: survey_id
-            valueNumeric: 1
-        - column:
-            name: active
-            valueBoolean: true
-        - column:
-            name: description
-            value: Description
-        - column:
-            name: end_date
-            valueDate: 2021-12-28T20:22:26.389529
-        - column:
-            name: start_date
-            valueDate: 2021-12-28T20:22:26.389529
-        - column:
-            name: title
-            value: Title
-        tableName: survey
-- changeSet:
-    id: 1640950308686-3
-    author: Andrew (generated)
-    changes:
-    - insert:
-        columns:
-        - column:
-            name: app_user_id
-            valueNumeric: 1
-        - column:
-            name: login
-            value: admin
-        - column:
-            name: password
-            value: $2a$10$R9GTJ.FDzvRBaUiLwdFdxeHHNX6PdIsG44thZZV.K5kvQFY6IPjPa
-        - column:
-            name: role
-            value: ADMIN
-        tableName: app_user
-    - insert:
-        columns:
-        - column:
-            name: app_user_id
-            valueNumeric: 2
-        - column:
-            name: login
-            value: user
-        - column:
-            name: password
-            value: $2a$10$otWhHnRmP7rJpvYRsU0Ryu/KRIZXyodnO3Ys/y7mEuZSTAxgpfKCC
-        - column:
-            name: role
-            value: USER
-        tableName: app_user
-- changeSet:
     id: 1640950308686-4
     author: Andrew (generated)
     changes:
     - insert:
         columns:
-        - column:
-            name: completed_survey_id
-            valueNumeric: 1
         - column:
             name: survey_id
             valueNumeric: 1
@@ -313,9 +305,6 @@ databaseChangeLog:
     - insert:
         columns:
         - column:
-            name: user_answer_id
-            valueNumeric: 1
-        - column:
             name: answer
             value: Text answer
         - column:
@@ -328,8 +317,6 @@ databaseChangeLog:
     - insert:
         columns:
         - column:
-            name: user_answer_id
-            valueNumeric: 2
         - column:
             name: answer
             value: SINGLE CHOICEanswer
@@ -342,9 +329,6 @@ databaseChangeLog:
         tableName: user_answer
     - insert:
         columns:
-        - column:
-            name: user_answer_id
-            valueNumeric: 3
         - column:
             name: answer
             value: MULTIPLE CHOICE answer 1, MULTIPLE CHOICE answer 2
