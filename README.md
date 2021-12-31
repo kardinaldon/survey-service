@@ -1,3 +1,10 @@
+
+Стек Spring Boot(data, web, security), lombok, jackson, springdoc-openapi-ui, liquibase, postgresql;
+Переменные окружения, для развертывания приложения JDBC_DATABASE_URL, JDBC_DATABASE_USERNAME, JDBC_DATABASE_PASSWORD - ориентировано на Postgres;
+
+Для тестов API - доступно по ссылке https://new-survey-service.herokuapp.com
+
+
 /** Анонимный пользователь **/
 
 ------ПРОХОЖДЕНИЕ ОПРОСА--------
@@ -159,6 +166,8 @@ Request Body (образец)
 "description": "NEW Description2",
 "active": true
 }
+
+
 
 ------удаление опроса--------
 
