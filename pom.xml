@@ -88,7 +88,7 @@
 				<artifactId>liquibase-maven-plugin</artifactId>
 				<configuration>
 					<changeLogFile>src/main/resources/db/changelog/db.changelog-master.yml</changeLogFile>
-					<url>${env.JDBC_DATABASE_URL}</url>
+					<url>${JDBC_DATABASE_URL}</url>
 				</configuration>
 			</plugin>
 		</plugins>
