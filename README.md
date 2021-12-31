@@ -15,31 +15,32 @@ header Content-Type application/json
 
 Request Body (образец)
 
+```json
 [
-{
-"user": {
-"appUserId": 2
-},
-"survey": {
-"survey_id": 1
-},
-"userAnswerList": [
-{
-"questionText": "Text of question333",
-"answer": "Text answer333"
-},
-{
-"questionText": "Text of question444",
-"answer": "SINGLE CHOICE answer"
-},
-{
-"questionText": "Text of question555",
-"answer": "MULTIPLE CHOICE answer 1, MULTIPLE CHOICE answer 2"
-}
+    {
+        "user": {
+            "appUserId": 2
+        },
+        "survey": {
+            "survey_id": 1
+        },
+        "userAnswerList": [
+            {
+                "questionText": "Text of question333",
+                "answer": "Text answer333"
+            },
+            {
+                "questionText": "Text of question444",
+                "answer": "SINGLE CHOICE answer"
+            },
+            {
+                "questionText": "Text of question555",
+                "answer": "MULTIPLE CHOICE answer 1, MULTIPLE CHOICE answer 2"
+            }
+        ]
+    }
 ]
-}
-]
-
+```
 /** Авторизованный пользователь **/
 
 ------получение списка активных опросов--------
@@ -49,18 +50,18 @@ path /user/survey/active
 header Authorization Basic dXNlcjp1c2Vy - тустовый пользователь user:user
 
 Response Body (образец)
-
+```json
 [
-{
-"survey_id": 1,
-"title": "Title",
-"startDate": "2021-12-28T08:22:26.389Z",
-"endDate": "2021-12-28T08:22:26.389Z",
-"description": "Description",
-"active": true
-}
+    {
+        "survey_id": 1,
+        "title": "Title",
+        "startDate": "2021-12-28T08:22:26.389Z",
+        "endDate": "2021-12-28T08:22:26.389Z",
+        "description": "Description",
+        "active": true
+    }
 ]
-
+```
 ------получение пройденных пользователем опросов с детализацией по ответам--------
 
 тип запроса GET
@@ -68,66 +69,66 @@ path /user/survey/active
 header Authorization Basic dXNlcjp1c2Vy - тустовый пользователь user:user
 
 Response Body (образец)
-
+```json
 [
-{
-"completedSurveyId": 1,
-"survey": {
-"survey_id": 1,
-"title": "Title",
-"startDate": "2021-12-28T08:22:26.389Z",
-"endDate": "2021-12-28T08:22:26.389Z",
-"description": "Description",
-"active": true
-},
-"userAnswerList": [
-{
-"questionText": "Text of question",
-"answer": "Text answer",
-"userAnswerId": 1
-},
-{
-"questionText": "Text of question",
-"answer": "SINGLE CHOICEanswer",
-"userAnswerId": 2
-},
-{
-"questionText": "Text of question",
-"answer": "MULTIPLE CHOICE answer 1, MULTIPLE CHOICE answer 2",
-"userAnswerId": 3
-}
+    {
+        "completedSurveyId": 1,
+        "survey": {
+            "survey_id": 1,
+            "title": "Title",
+            "startDate": "2021-12-28T08:22:26.389Z",
+            "endDate": "2021-12-28T08:22:26.389Z",
+            "description": "Description",
+            "active": true
+        },
+        "userAnswerList": [
+            {
+                "questionText": "Text of question",
+                "answer": "Text answer",
+                "userAnswerId": 1
+            },
+            {
+                "questionText": "Text of question",
+                "answer": "SINGLE CHOICEanswer",
+                "userAnswerId": 2
+            },
+            {
+                "questionText": "Text of question",
+                "answer": "MULTIPLE CHOICE answer 1, MULTIPLE CHOICE answer 2",
+                "userAnswerId": 3
+            }
+        ]
+    },
+    {
+        "completedSurveyId": 2,
+        "survey": {
+            "survey_id": 1,
+            "title": "Title",
+            "startDate": "2021-12-31T08:22:26.389Z",
+            "endDate": "2021-12-31T08:22:26.389Z",
+            "description": "Description",
+            "active": true
+        },
+        "userAnswerList": [
+            {
+                "questionText": "Text of question333",
+                "answer": "Text answer333",
+                "userAnswerId": 4
+            },
+            {
+                "questionText": "Text of question444",
+                "answer": "SINGLE CHOICE answer",
+                "userAnswerId": 5
+            },
+            {
+                "questionText": "Text of question555",
+                "answer": "MULTIPLE CHOICE answer 1, MULTIPLE CHOICE answer 2",
+                "userAnswerId": 6
+            }
+        ]
+    }
 ]
-},
-{
-"completedSurveyId": 2,
-"survey": {
-"survey_id": 1,
-"title": "Title",
-"startDate": "2021-12-31T08:22:26.389Z",
-"endDate": "2021-12-31T08:22:26.389Z",
-"description": "Description",
-"active": true
-},
-"userAnswerList": [
-{
-"questionText": "Text of question333",
-"answer": "Text answer333",
-"userAnswerId": 4
-},
-{
-"questionText": "Text of question444",
-"answer": "SINGLE CHOICE answer",
-"userAnswerId": 5
-},
-{
-"questionText": "Text of question555",
-"answer": "MULTIPLE CHOICE answer 1, MULTIPLE CHOICE answer 2",
-"userAnswerId": 6
-}
-]
-}
-]
-
+```
 
 /** Администратор **/
 
@@ -139,15 +140,15 @@ header Content-Type application/json
 header Authorization Basic YWRtaW46YWRtaW4= - тустовый пользователь admin:admin
 
 Request Body (образец)
-
+```json
 {
-"title": "Title2",
-"startDate": "2021-12-31T08:07:26.389Z",
-"endDate": "2021-12-31T08:09:26.389Z",
-"description": "Description2",
-"active": true
+  "title": "Title2",
+  "startDate": "2021-12-31T08:07:26.389Z",
+  "endDate": "2021-12-31T08:09:26.389Z",
+  "description": "Description2",
+  "active": true
 }
-
+```
 
 ------изменение опроса--------
 
@@ -157,16 +158,16 @@ header Content-Type application/json
 header Authorization Basic YWRtaW46YWRtaW4= - тустовый пользователь admin:admin
 
 Request Body (образец)
-
+```json
 {
-"survey_id": 1,
-"title": "Title2",
-"startDate": null,
-"endDate": "2021-12-31T08:09:26.389Z",
-"description": "NEW Description2",
-"active": true
+  "survey_id": 1,
+  "title": "Title2",
+  "startDate": null,
+  "endDate": "2021-12-31T08:09:26.389Z",
+  "description": "NEW Description2",
+  "active": true
 }
-
+```
 
 
 ------удаление опроса--------
@@ -185,15 +186,15 @@ header Content-Type application/json
 header Authorization Basic YWRtaW46YWRtaW4= - тустовый пользователь admin:admin
 
 Request Body (образец)
-
+```json
 {
-"text": "Text of question",
-"type": "TEXT",
-"survey": {
-"survey_id": 1
+  "text": "Text of question",
+  "type": "TEXT",
+  "survey": {
+  "survey_id": 1
+  }
 }
-}
-
+```
 
 ------изменение вопроса--------
 
@@ -203,15 +204,15 @@ header Content-Type application/json
 header Authorization Basic YWRtaW46YWRtaW4= - тустовый пользователь admin:admin
 
 Request Body (образец)
-
+```json
 {
-"text": "Text of question",
-"type": "TEXT",
-"survey": {
-"survey_id": 1
+  "text": "Text of question",
+  "type": "TEXT",
+  "survey": {
+  "survey_id": 1
+  }
 }
-}
-
+```
 ------удаление вопроса--------
 
 тип запроса DELETE
