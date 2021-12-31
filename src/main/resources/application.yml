@@ -17,7 +17,7 @@ spring:
     open-in-view: false
   liquibase:
     enabled: true
-    change-log: classpath:db/changelog/db.changelog-master.yml
+    change-log: classpath:db.changelog/db.changelog-master.yml
     url: ${JDBC_DATABASE_URL}
     user: ${JDBC_DATABASE_USERNAME}
     password: ${JDBC_DATABASE_PASSWORD}
