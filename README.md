@@ -67,7 +67,7 @@ Response Body (образец)
 ------получение пройденных пользователем опросов с детализацией по ответам--------
 
 тип запроса GET
-path /user/survey/active
+path /user/survey/answer
 header Authorization Basic dXNlcjp1c2Vy - тустовый пользователь user:user
 
 Response Body (образец)
