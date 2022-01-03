@@ -3,7 +3,7 @@
 
 Переменные окружения, для развертывания приложения JDBC_DATABASE_URL, JDBC_DATABASE_USERNAME, JDBC_DATABASE_PASSWORD - ориентировано на Postgres;
 
-Для тестов API - доступно по ссылке https://new-survey-service.herokuapp.com
+Для тестов API - доступно по ссылке https://new-survey-service.herokuapp.com (ответ на первый запрос - около 15 секунд - особенность аккаунта, приложение находится в неактивном состоянии при долгом простое)
 (например GET запрос c header Authorization Basic dXNlcjp1c2Vy на https://new-survey-service.herokuapp.com/user/survey/active - в ответ пришлёт список активных опросов, а по адресу https://new-survey-service.herokuapp.com/swagger-ui/index.html - доступна документация по API)
 
 
